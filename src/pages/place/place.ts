@@ -3,7 +3,7 @@ import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angula
 import {PlacesService} from "../../services/places.sevices";
 
 /**
- * Generated class for the FormPage page.
+ * Generated class for the PlacePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,22 +11,24 @@ import {PlacesService} from "../../services/places.sevices";
 
 @IonicPage()
 @Component({
-  selector: 'page-form',
-  templateUrl: 'form.html',
+  selector: 'page-place',
+  templateUrl: 'place.html',
 })
-export class FormPage {
+export class PlacePage {
   lugar : any = {};
+
   constructor(public navCtrl: NavController, private placesService: PlacesService, private alertCtrl: AlertController, public navParams: NavParams) {
+    this.lugar= this.navParams.get('lugar');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FormPage');
+    console.log('ionViewDidLoad PlacePage');
   }
-  createPlace(){
+  updatePlace(){
     if(!this.lugar.id){
       this.lugar.id = Date.now();
     }
-    this.placesService.createPlace(this.lugar).then(()=>{
+    this.placesService.editPlace(this.lugar).then(()=>{
       let alert = this.alertCtrl.create({
         title: 'Nota Guardada con Éxito',
         buttons: ['Ok']

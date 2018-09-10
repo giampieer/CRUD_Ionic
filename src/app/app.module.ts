@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PlacePage } from "../pages/place/place";
 
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {AngularFireDatabaseModule} from "angularfire2/database";
@@ -31,7 +32,8 @@ var firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    FormPage
+    FormPage,
+    PlacePage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ var firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    FormPage
+    FormPage,
+    PlacePage
   ],
   providers: [
     StatusBar,

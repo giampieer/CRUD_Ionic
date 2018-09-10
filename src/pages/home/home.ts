@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import {AlertController, NavController} from 'ionic-angular';
-import {PlacesService} from "../../services/places.sevices";
-import {FormPage} from "../form/form";
-import {Observable} from "rxjs";
-import { AngularFireDatabase } from 'angularfire2/database';
-import {map} from"rxjs/internal/operators";
-import {PlacePage} from "../place/place";
+import { AlertController, NavController } from 'ionic-angular';
+import { PlacesService } from "../../services/places.sevices";
+import { FormPage } from "../form/form";
+import { PlacePage } from "../place/place";
 
 @Component({
   selector: 'page-home',
@@ -14,7 +11,7 @@ import {PlacePage} from "../place/place";
 export class HomePage {
   lugares : any = [];
   lugar : any = {};
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private placesService: PlacesService, afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private placesService: PlacesService) {
     this.placesService.getPlaces().valueChanges()
       .subscribe((places) => {
           this.lugares = places;
@@ -31,7 +28,7 @@ export class HomePage {
   deletePlace(lugar){
     this.placesService.deletePlace(lugar).then(()=>{
       let alert = this.alertCtrl.create({
-        title: 'Nota Guardada con Éxito',
+        title: 'DELETE !!',
         buttons: ['Ok']
       });
       alert.present();

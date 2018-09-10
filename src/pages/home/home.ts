@@ -28,14 +28,14 @@ export class HomePage {
   update(lugar){
     this.navCtrl.push(PlacePage,{lugar: lugar});
   }
-  deletePlace(){
-    this.placesService.deletePlace(this.lugar).then(()=>{
+  deletePlace(lugar){
+    this.placesService.deletePlace(lugar).then(()=>{
       let alert = this.alertCtrl.create({
         title: 'Nota Guardada con Éxito',
         buttons: ['Ok']
       });
       alert.present();
-      this.navCtrl.push(HomePage);
+      this.navCtrl.setRoot(HomePage);
     });
   }
 }

@@ -13,6 +13,8 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
 import {PlacesService} from "../services/places.sevices";
 import {FormPage} from "../pages/form/form";
+import {LoginPage} from "../pages/login/login";
+import {AuthServices} from "../services/auth.services";
 
 var firebaseConfig = {
   apiKey: "AIzaSyAD_6K7hEnZXHn-iNIdsFaCByTQeuVc4Jo",
@@ -30,7 +32,8 @@ var firebaseConfig = {
     HomePage,
     TabsPage,
     FormPage,
-    PlacePage
+    PlacePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -46,12 +49,14 @@ var firebaseConfig = {
     HomePage,
     TabsPage,
     FormPage,
-    PlacePage
+    PlacePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     PlacesService,
+    AuthServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

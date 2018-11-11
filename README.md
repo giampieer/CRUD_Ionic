@@ -1,6 +1,6 @@
 CRUD - IONIC 4
 
-Intalacion
+Instalacion
 
 Las versiones tene que ser package.json
 "angularfire2": "^5.0.0-rc.11",
